@@ -1,1 +1,1 @@
-[{"ID":0,"Name":"","RestaurantType":{"Types":[]},"TimeVisit":"0001-01-01T00:00:00","OverallRating":0,"CleanessRating":0,"FoodQualityRating":0,"Note":"","Reporter":{"ID":"","FirstName":"","LastName":""}}]
+[{"ID":-1,"Name":"asdsad","RestaurantType":"Street food","TimeVisit":"2020-11-23T00:57:48.7880781+07:00","CleanessRating":3,"ServicesRating":3,"FoodQualityRating":4,"OverallRating":4,"Note":"asdasd","Reporter":{"ID":0,"FirstName":"Firstname","LastName":"Lastname"}}]

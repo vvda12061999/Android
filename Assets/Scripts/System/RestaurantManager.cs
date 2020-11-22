@@ -24,26 +24,24 @@ public class RestaurantManager : Singleton<RestaurantManager>
         }
     }
 
-    private void Update()
+    public void SaveRestaurant(Restaurant restaurant)
     {
-        
+        Restaurants.Add(restaurant);
+        SaveJson();
     }
-
-
+   
     public void SaveJson()
     {
         using (StreamWriter file = File.CreateText(@folderPath + "Data.json"))
         {
-            Debug.Log("Restaurant saved to Json");
             JsonSerializer serializer = new JsonSerializer();
             serializer.Serialize(file, Restaurants);
         }
     }
     private void LoadJson()
     {
-        string lJson = File.ReadAllText(folderPath + "Data.json");
+        string lJson = File.ReadAllText(@folderPath + "Data.json");
         var _l = JsonConvert.DeserializeObject <List<Restaurant>> (lJson);
         Restaurants = _l;
-        Debug.Log("JsonLoaded");
     }
 }

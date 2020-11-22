@@ -8,15 +8,16 @@ public class Restaurant
 {
     public int ID;
     public string Name;
-    public RestaurantType RestaurantType;
+    public string RestaurantType;
     public DateTime TimeVisit;
-    public int OverallRating;
     public int CleanessRating;
+    public int ServicesRating;
     public int FoodQualityRating;
+    public int OverallRating;
     public string Note;
     public Reporter Reporter;
 
-    public void AddRestaurant(int id, string name, RestaurantType type, DateTime timeVisit, int overall, int cleaness,
+    public Restaurant(int id, string name, string type, DateTime timeVisit, int overall, int cleaness, int servicesRating,
         int foodQuality, string note, Reporter reporter)
     {
         this.ID = id;
@@ -25,6 +26,7 @@ public class Restaurant
         this.TimeVisit = timeVisit;
         this.OverallRating = overall;
         this.CleanessRating = cleaness;
+        this.ServicesRating = servicesRating;
         this.FoodQualityRating = foodQuality;
         this.Note = note;
         this.Reporter = reporter;
