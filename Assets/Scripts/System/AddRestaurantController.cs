@@ -25,6 +25,7 @@ public class AddRestaurantController : MonoBehaviour
     private void Start()
     {
         Init();
+        SaveText.gameObject.SetActive(false);
         AddListener();
     }
 
@@ -46,10 +47,14 @@ public class AddRestaurantController : MonoBehaviour
         {
             if(CheckNullText(NameInputField) && CheckNullInt(CleanessRating.rated) && CheckNullInt(ServicesRating.rated) &&
                CheckNullInt(FoodQualityRating.rated) && CheckNullInt(OverallRating.rated))
+            {
                 RestaurantManager.Instance.SaveRestaurant(new Restaurant(
                     RestaurantManager.Instance.Restaurants.Count - 1, NameInputField.text, RestaurantType.options[RestaurantType.value].text,
                     DateTime.Now, OverallRating.rated, CleanessRating.rated, ServicesRating.rated, FoodQualityRating.rated, Description.text,
                     new Reporter()));
+                SaveText.gameObject.SetActive(true);
+                Init();
+            }
             else
             {
                 Debug.Log("Please Fill all");

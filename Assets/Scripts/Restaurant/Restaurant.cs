@@ -14,7 +14,7 @@ public class Restaurant
     public int ServicesRating;
     public int FoodQualityRating;
     public int OverallRating;
-    public string Note;
+    public string Description;
     public Reporter Reporter;
 
     public Restaurant(int id, string name, string type, DateTime timeVisit, int overall, int cleaness, int servicesRating,
@@ -28,7 +28,7 @@ public class Restaurant
         this.CleanessRating = cleaness;
         this.ServicesRating = servicesRating;
         this.FoodQualityRating = foodQuality;
-        this.Note = note;
+        this.Description = note;
         this.Reporter = reporter;
     }
 }

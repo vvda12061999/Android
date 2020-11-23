@@ -8,8 +8,8 @@ using UnityEngine;
 public class RestaurantManager : Singleton<RestaurantManager>
 {
     public List<Restaurant> Restaurants;
-
-    private string folderPath = "";
+    
+    [HideInInspector] public string folderPath = "";
 
     private void Awake()
     {
@@ -29,7 +29,18 @@ public class RestaurantManager : Singleton<RestaurantManager>
         Restaurants.Add(restaurant);
         SaveJson();
     }
-   
+    public void LoadRestaurantList(GameObject prefab, Restaurant restaurant)
+    {
+        var instance = prefab.GetComponent<RestaurantInstance>();
+        instance.Name.text = restaurant.Name;
+        instance.Type.text = restaurant.RestaurantType;
+        instance.Cleaness.GetRate(restaurant.CleanessRating);
+        instance.Services.GetRate(restaurant.ServicesRating);
+        instance.Food.GetRate(restaurant.FoodQualityRating);
+        instance.Overall.GetRate(restaurant.OverallRating);
+        instance.Description.text = restaurant.Description;
+    }
+
     public void SaveJson()
     {
         using (StreamWriter file = File.CreateText(@folderPath + "Data.json"))
@@ -38,7 +49,7 @@ public class RestaurantManager : Singleton<RestaurantManager>
             serializer.Serialize(file, Restaurants);
         }
     }
-    private void LoadJson()
+    public void LoadJson()
     {
         string lJson = File.ReadAllText(@folderPath + "Data.json");
         var _l = JsonConvert.DeserializeObject <List<Restaurant>> (lJson);

@@ -29,7 +29,19 @@ public class Rate : MonoBehaviour {
         rated = 0;
         RateApplication(0);
     }
+    public void GetRate(int rate)
+    {
+        rated = rate;
 
+        for (int i = 0; i < rate; i++)
+        {
+            foreach (Transform t in starButton[i].transform)
+            {
+                t.gameObject.SetActive(false);
+                starButton[i].transform.GetChild(0).gameObject.SetActive(true);
+            }
+        }
+    }
     public void RateApplication(int rate)
     {
         rated = rate;
@@ -54,7 +66,6 @@ public class Rate : MonoBehaviour {
             }
         }
     }
-
     public void AcceptRating()
     {
         // analytics rating
