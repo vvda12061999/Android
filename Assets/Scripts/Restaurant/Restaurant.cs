@@ -9,16 +9,15 @@ public class Restaurant
     public int ID;
     public string Name;
     public string RestaurantType;
-    public DateTime TimeVisit;
+    public string TimeVisit;
     public int CleanessRating;
     public int ServicesRating;
     public int FoodQualityRating;
     public int OverallRating;
     public string Description;
-    public Reporter Reporter;
 
-    public Restaurant(int id, string name, string type, DateTime timeVisit, int overall, int cleaness, int servicesRating,
-        int foodQuality, string note, Reporter reporter)
+    public Restaurant(int id, string name, string type, string timeVisit, int overall, int cleaness, int servicesRating,
+        int foodQuality, string note)
     {
         this.ID = id;
         this.Name = name;
@@ -29,7 +28,6 @@ public class Restaurant
         this.ServicesRating = servicesRating;
         this.FoodQualityRating = foodQuality;
         this.Description = note;
-        this.Reporter = reporter;
     }
 }
 

@@ -50,8 +50,7 @@ public class AddRestaurantController : MonoBehaviour
             {
                 RestaurantManager.Instance.SaveRestaurant(new Restaurant(
                     RestaurantManager.Instance.Restaurants.Count - 1, NameInputField.text, RestaurantType.options[RestaurantType.value].text,
-                    DateTime.Now, OverallRating.rated, CleanessRating.rated, ServicesRating.rated, FoodQualityRating.rated, Description.text,
-                    new Reporter()));
+                    DateTime.Now.ToString(), OverallRating.rated, CleanessRating.rated, ServicesRating.rated, FoodQualityRating.rated, Description.text));
                 SaveText.gameObject.SetActive(true);
                 Init();
             }
